@@ -11,7 +11,7 @@ return computerChoice
 }
 // Get the user choice by using prompt and saving it to a variable
 function getUserChoice(){
-   let userChoice = prompt(`Choose Between Rock-Paper-scissors😒`, );
+   let userChoice = prompt(`Choose Between Rock-Paper-scissors😒`, ).toLowerCase();
    return userChoice;
 }
 // declaring scores to save the score of the human and computer
@@ -48,7 +48,7 @@ if (round ==`you won!`){
     
 }
 else if (round==`you lose!`){
-    compuerScore++;
+    computerScore++;
 }
 else if(round==`play again!`){
     humanScore+=0;
