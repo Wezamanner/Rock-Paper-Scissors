@@ -20,7 +20,10 @@ BTN2.textContent = `Paper`;
 div.appendChild(BTN2)
 const BTN3 = document.createElement(`button`);
 BTN3.textContent = `Scissors`;
-div.appendChild(BTN3)
+div.appendChild(BTN3);
+const resetBtn = document.createElement(`button`);
+resetBtn.textContent=`Reset`;
+div.appendChild(resetBtn)
 const resultDev= document.createElement(`div`);
 div.appendChild(resultDev);
 const score = document.createElement(`div`);
@@ -45,18 +48,22 @@ BTN3.addEventListener(`click`,()=>{
     playRound(hChoice,computerSelection);
     
 } )
+resetBtn.addEventListener(`click`, ()=>{
+    computerScore=0;
+    humanScore=0;
+})
 // function getUserChoice(){
 //    let userChoice = prompt(`Choose Between Rock-Paper-scissors😒`, );
 //    return userChoice;
 // }
 // declaring scores to save the score of the human and computer
+// The logic of the single round of the game is done here within this function
 let humanScore = 0;
 let computerScore = 0;
-// The logic of the single round of the game is done here within this function
 function playRound (humanChoice, computerChoice){
+   
     if (humanChoice==`rock` && computerChoice == `scissors`||humanChoice ==`paper` && computerChoice == `rock`||humanChoice == `scissors` && computerChoice ==`paper`){
         humanScore++;
-
 resultDev.textContent=`you won!`}
 	else if(humanChoice == `scissors` && computerChoice ==`rock`||humanChoice==`rock` && computerChoice == `paper`||humanChoice == `paper` && computerChoice == `scissors`){
         computerScore++;
@@ -67,23 +74,28 @@ resultDev.textContent=`you won!`}
 console.log(computerScore,humanScore);
 
 score.textContent=`You Scored${humanScore} and the computer scored ${computerScore}`
+
 if(computerScore==5&&humanScore<5){
     score.textContent=`SORRY😔 YOU LOSE!!!`;
 }
 if(humanScore==5&&computerScore<5){
-   score.textContentn=`HUREY YO WON THE MATCH🏆!!!`
+   score.textContent=`HUREY YO WON THE MATCH🏆!!!`
 }
 if(humanScore>5||computerScore>5){
   score.textContent==`the Game has already ended`;
 }
-
-
+if(humanScore==5&&computerScore==5){
+    score.textContent=`YOU DREW!! BEST OFF LUCK FOR THE NEXT ROUND`
 }
+// playRound();
+}
+
 // div.style = `display: flex; justify-content: center; font-style:Segoe UI , sans-serif; gap: 5rem;margin-top: 20rem ; flex-direction: column`;
 
 BTN1.style= `padding :30px; margin: 10px ; background-color:red ; border-radius: 20px;`;
 BTN2.style =`padding :30px; margin: 10px ; background-color:red ; border-radius: 20px`;
 BTN3.style =`padding :30px; margin: 10px ; background-color:red ; border-radius: 20px`;
+resetBtn.style=`padding :15px; margin: 10px ; background-color:blue ; border-radius: 20px ; display: block;margin-left:140px`;
 
 // the game logic for the score keeping is in this function 
 // function playGame(Event){
