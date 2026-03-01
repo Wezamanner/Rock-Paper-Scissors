@@ -30,34 +30,12 @@ const score = document.createElement(`div`);
 div.appendChild(score);
 const winnerAnouncer = document.createElement(`div`);
 div.appendChild(winnerAnouncer)
-BTN1.addEventListener(`click` , () =>{
-   let hChoice= BTN1.textContent.toLocaleLowerCase();
-   const computerSelection = getComputerChoice();
-   playRound(hChoice,computerSelection);
-
-});
-BTN2.addEventListener(`click`, ()=>{
-    const computerSelection = getComputerChoice();
-    let hChoice = BTN2.textContent.toLowerCase();
-    playRound(hChoice,computerSelection);
-    
-});
-BTN3.addEventListener(`click`,()=>{
-    const computerSelection = getComputerChoice();
-  let hChoice = BTN3.textContent.toLocaleLowerCase();
-    playRound(hChoice,computerSelection);
-    
-} )
-resetBtn.addEventListener(`click`, ()=>{
-    computerScore=0;
-    humanScore=0;
-})
 // function getUserChoice(){
-//    let userChoice = prompt(`Choose Between Rock-Paper-scissors😒`, );
-//    return userChoice;
-// }
-// declaring scores to save the score of the human and computer
-// The logic of the single round of the game is done here within this function
+    //    let userChoice = prompt(`Choose Between Rock-Paper-scissors😒`, );
+    //    return userChoice;
+    // }
+    // declaring scores to save the score of the human and computer
+    // The logic of the single round of the game is done here within this function
 let humanScore = 0;
 let computerScore = 0;
 function playRound (humanChoice, computerChoice){
@@ -82,7 +60,8 @@ if(humanScore==5&&computerScore<5){
    score.textContent=`HUREY YO WON THE MATCH🏆!!!`
 }
 if(humanScore>5||computerScore>5){
-  score.textContent==`the Game has already ended`;
+    resultDev.textContent=``
+    score.textContent=`the Game has already ended`;
 }
 if(humanScore==5&&computerScore==5){
     score.textContent=`YOU DREW!! BEST OFF LUCK FOR THE NEXT ROUND`
@@ -90,6 +69,30 @@ if(humanScore==5&&computerScore==5){
 // playRound();
 }
 
+BTN1.addEventListener(`click` , () =>{
+   let hChoice= BTN1.textContent.toLocaleLowerCase();
+   const computerSelection = getComputerChoice();
+   playRound(hChoice,computerSelection);
+
+});
+BTN2.addEventListener(`click`, ()=>{
+    const computerSelection = getComputerChoice();
+    let hChoice = BTN2.textContent.toLowerCase();
+    playRound(hChoice,computerSelection);
+    
+});
+BTN3.addEventListener(`click`,()=>{
+    const computerSelection = getComputerChoice();
+  let hChoice = BTN3.textContent.toLocaleLowerCase();
+    playRound(hChoice,computerSelection);
+    
+} )
+resetBtn.addEventListener(`click`, ()=>{
+    computerScore=0;
+    humanScore=0;
+    score.textContent=``;
+    resultDev.textContent=`Game reset!`
+})
 // div.style = `display: flex; justify-content: center; font-style:Segoe UI , sans-serif; gap: 5rem;margin-top: 20rem ; flex-direction: column`;
 
 BTN1.style= `padding :30px; margin: 10px ; background-color:red ; border-radius: 20px;`;
